@@ -1,6 +1,8 @@
 body {
     margin: 0px;
+    background-color: #aaa;
 }
+
 .container {
     margin: 5% 5%;
     overflow: auto;
@@ -8,4 +10,12 @@ body {
     padding: 20px;
     box-shadow: 2px 2px 12px #aaa; /* Shadow effect for paper-like feel */
     border-radius: 8px; /* Rounded corners */
+  }
+
+  .container.colored{
+    font-size: 30px;
+    font-style: italic;
+    background: -webkit-linear-gradient(blue, teal, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
