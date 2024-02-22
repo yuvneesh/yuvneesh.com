@@ -1,0 +1,9 @@
+.container {
+    max-width: 700px; /* Adjusted width for comfortable reading */
+    margin: auto;
+    overflow: hidden;
+    background: #fff; /* White background for content */
+    padding: 20px;
+    box-shadow: 2px 2px 12px #aaa; /* Shadow effect for paper-like feel */
+    border-radius: 8px; /* Rounded corners */
+  }
