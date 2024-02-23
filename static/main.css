@@ -1,22 +1,43 @@
 body {
     margin: 0px;
+    position: relative;
+    height: 100vh;
     background-color: #aaa;
 }
 
-.container {
-    margin: 5% 5%;
-    overflow: auto;
-    background: #fff; /* White background for content */
-    padding: 20px;
-    box-shadow: 2px 2px 12px #aaa; /* Shadow effect for paper-like feel */
-    border-radius: 8px; /* Rounded corners */
+.main.container {
+    box-sizing: border-box;
+    max-width: 100vh;
+    margin-top: 50px;
+    height: 100%;
+    padding:3%;
+
+    box-shadow: 2px 2px 12px #aaa; 
   }
 
-  .container.colored{
+  .row {
+    margin: 30px 5px;
+    padding: 10px;
+    background: #fff; 
+    box-shadow: 2px 2px 12px #aaa; 
+    border-radius: 10px;
+  }
+
+  .row.colored{
     font-size: 30px;
     font-style: italic;
     background: -webkit-linear-gradient(blue, teal, green);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  .navigation{
+    display: flex;
+    background:-webkit-linear-gradient(#5b000a,#6b000c, #7a000e,	#890010);
+    padding-left: 10%;
+  }
+
+  .nav-custom{
+    color:white;
   }
