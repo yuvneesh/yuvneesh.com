@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request
 from sootByFTIR import sootCalc
+import os
 
 app = Flask(__name__)
 
 #Adding secret key
-f = open("secretKey.secret","r")
-f2 = f.read()
-app.config['SECRET_KEY'] = f2
+os.environ.get('SECRET_KEY')
 
 @app.route("/")
 def home():
