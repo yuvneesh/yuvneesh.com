@@ -1,8 +1,37 @@
 {% extends "layout.html" %}
 
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='about.css') }}">
 
+{% endblock %}
 {% block content %}
-    <div class="row colored">
-        I am Yuvneesh.
-    </div>
+    <section class="row">
+        <h1>Hello, I'm Yuvneesh Kashyap</h1>
+        <p>I am a student at the University of Toronto, majoring in Physics with minors in Mathematics and Computer Science.
+           I am currently working as a Auto-Diagnostic Tech at ALS Oils and Lubricants.
+        </p>
+    </section>
+    <section class="row">
+        <h1>Motivation behind this website</h1>
+        <p>There are a handful of few reasons that motivated me to work on building a website of my own.
+            Largely, it is a hobby. I longed for a running project in which I could invest my burts of creativity. 
+            I felt working on an umbrella project could be a lot more fruitful than having tens of unfinished ones.
+            Another substantial reason is to facilitate showcasing my work. I have worked on numerous data handling projects 
+            that sit locally in my "repos" directory. Perhaps creating there web counterparts would make it easier to share my work.
+        </p>
+    </section>
+    <section class="row">
+        <h1>Structural Info</h1>
+        <p>
+            I have created this website in the form of a flask app. As of now, it is deployed on azure.
+            The apps section are web version of desktop applications or scripts I build overtime, often related to my work.
+        </p>
+    </section>
+<footer class="socials">
+    <p>Connect with me on </p>
+    <a href="https://github.com/yuvneesh" target="_blank" title="GitHub">
+        <img src="/static/github.png" alt="GitHub" style="width: 36px; height: 36px;">
+    </a>
+</footer>
 {% endblock %}
