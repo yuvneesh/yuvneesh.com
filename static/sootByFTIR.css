@@ -1,0 +1,45 @@
+body {
+    margin: 0px;
+    position: relative;
+    height: 100vh;
+    background-color: #aaa;
+    align-items: center;
+}
+
+.row{
+  margin-left: 10%;
+}
+
+.mainContainer{
+  color: #5b000a;
+  font-size:x-large;
+  display: flow;
+  box-sizing: border-box;
+  max-width: 60vh;
+  margin: 50px 50px 0px 50px;
+  padding:3%;
+  box-shadow: 2px 2px 12px #aaa; 
+  align-content: center;
+}
+
+.formContainer {
+    color: #000;
+    max-width: 50vh;
+    margin: 0px 50px 10px 50px;
+    padding:3%;
+    box-shadow: 2px 2px 12px #aaa; 
+  }
+
+  .btn{
+    margin-top: 5%;
+  }
+
+  .navigation{
+    display: flex;
+    background:-webkit-linear-gradient(#5b000a,#6b000c, #7a000e,	#890010);
+    padding-left: 10%;
+  }
+
+  .nav-custom{
+    color:white;
+  }
