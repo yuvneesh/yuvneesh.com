@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 #Adding secret key
-os.environ.get('SECRET_KEY')
+app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 
 @app.route("/")
 def home():
