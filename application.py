@@ -10,7 +10,7 @@ app = Flask(__name__)
 load_dotenv()
 
 #Adding secret key
-app.config['SECRET_KEY'] = os.getenv['SECRET_KEY']
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.userManager = UserManager(r"./db.db")
 
 @app.route("/")
