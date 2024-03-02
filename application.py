@@ -4,11 +4,13 @@ from loginPage import loginForm
 from authentication import UserManager
 import json
 import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
+load_dotenv()
 
 #Adding secret key
-app.config['SECRET_KEY'] = "jEXPcuXLDIUXbHROfl2CXIu9slYX5p6tf"
+app.config['SECRET_KEY'] = os.getenv['SECRET_KEY']
 app.userManager = UserManager(r"./db.db")
 
 @app.route("/")
