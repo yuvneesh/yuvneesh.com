@@ -1,20 +1,22 @@
 from __future__ import annotations
-import sqlite3
+import pyodbc
 import bcrypt
+import os
 
 class UserManager:
     """Handles everything related to user management"""
 
-    def __init__(self, databaseLocation: str):
-        self.db = databaseLocation
+    def __init__(self, connectionString: str):
+        self.connectionString = connectionString
+        print(self.connectionString)
 
-    def cursor(self) -> sqlite3.Cursor:
-        return sqlite3.connect(self.db).cursor()
+    def cursor(self) -> pyodbc.Cursor:
+        return pyodbc.connect(self.connectionString).cursor()
     
     def validateCredentials(self, username: str, password: str) -> bool:
         """Return true if the credentials are valid
         """
-        qry = f"SELECT PASSWORD FROM CREDENTIALS WHERE USERNAME = '{username.strip()}'"
+        qry = f"SELECT PASSWORD FROM LoginAppCreds WHERE USERNAME = '{username.strip()}'"
         success = False
         cursor = self.cursor()
         try:

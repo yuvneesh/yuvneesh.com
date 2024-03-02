@@ -11,7 +11,7 @@ load_dotenv()
 
 #Adding secret key
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-app.userManager = UserManager(r"./db.db")
+app.userManager = UserManager(os.getenv('LOGIN_APP_CONNECTION_STRING'))
 
 @app.route("/")
 def home():
@@ -49,7 +49,10 @@ def login():
 
 @app.route("/authenticate", methods=['POST'])
 def authenticate():
-    if app.userManager.validateCredentialsDummy(request.get_json()["username"], request.get_json()['password']):
-        return json.dumps({"status": True})
-    else:
-        return json.dumps({"status": False})
+    try:
+        if app.userManager.validateCredentials(request.get_json()["username"], request.get_json()['password']):
+            return json.dumps({"status": True})
+        else:
+            return json.dumps({"status": False})
+    except UserManager.UserNotFound:
+            return json.dumps({"status": False})
