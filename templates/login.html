@@ -27,45 +27,55 @@
                 {% endfor %}
             </fieldset>
             
-            <div class="form-group text-center mt-4 mx-auto"><p id="loginStatus">&#8203;</p></div>
+            <div class="form-group text-center mt-4 mx-auto">
+                <div class="spinner-border" role="status" id="loginSpinner">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p id="loginStatus">&#8203;</p>
+            </div>
             <div class="form-group d-flex justify-content-between">
             <button type="button" id="login" class="btn btn-primary btn-lg mt-4 mx-auto">Login</button> 
             </div>
             <script>
+                document.getElementById("loginSpinner").style.visibility = "hidden";
                 document.getElementById("login").onclick = function() {authenticate()};
 
-async function authenticate() {
+                async function authenticate() {
 
-if (document.getElementById("username").value == ""){
-    document.getElementById("loginStatus").innerText = "Please enter a valid username!"
-    document.getElementById("loginStatus").style.color = "red"
-    return
-}
-if (document.getElementById("password").value == ""){
-    document.getElementById("loginStatus").innerText = "Please enter a password!"
-    document.getElementById("loginStatus").style.color = "red"
-    return
-}
-const payload = {
-    "username" : document.getElementById("username").value,
-    "password" : document.getElementById("password").value
-}
+                    if (document.getElementById("username").value == ""){
+                        document.getElementById("loginStatus").innerText = "Please enter a valid username!"
+                        document.getElementById("loginStatus").style.color = "red"
+                        return
+                    }
+                    if (document.getElementById("password").value == ""){
+                        document.getElementById("loginStatus").innerText = "Please enter a password!"
+                        document.getElementById("loginStatus").style.color = "red"
+                        return
+                    }
 
-const response = await fetch("/authenticate", {
-    method: 'POST',
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(payload)
-});
+                    document.getElementById("loginSpinner").style.visibility = "visible";
 
-const result = await response.json();
-    if (result.status) {
-        document.getElementById("loginStatus").innerText = "Login Successful"
-        document.getElementById("loginStatus").style.color = "green"
-    } else {
-        document.getElementById("loginStatus").innerText = "Login Failed: Incorrect Username or Password"
-        document.getElementById("loginStatus").style.color = "red"
-    }
-}
+                    const payload = {
+                        "username" : document.getElementById("username").value,
+                        "password" : document.getElementById("password").value
+                    }
+
+                    const response = await fetch("/authenticate", {
+                        method: 'POST',
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+                        if (result.status) {
+                            document.getElementById("loginStatus").innerText = "Login Successful"
+                            document.getElementById("loginStatus").style.color = "green"
+                        } else {
+                            document.getElementById("loginStatus").innerText = "Login Failed: Incorrect Username or Password"
+                            document.getElementById("loginStatus").style.color = "red"
+                        }
+                        document.getElementById("loginSpinner").style.visibility = "hidden";
+                }
             </script>
         </form>
     </div>
