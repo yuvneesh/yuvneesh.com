@@ -1,5 +1,5 @@
 from __future__ import annotations
-import pyodbc
+import sqlite3
 import bcrypt
 import os
 
@@ -10,8 +10,10 @@ class UserManager:
         self.connectionString = connectionString
         print(self.connectionString)
 
-    def cursor(self) -> pyodbc.Cursor:
-        return pyodbc.connect(self.connectionString).cursor()
+    def cursor(self) -> sqlite3.Cursor:
+        # return pyodbc.connect(self.connectionString).cursor()
+        return sqlite3.connect(self.connectionString).cursor()
+    
     
     def validateCredentials(self, username: str, password: str) -> bool:
         """Return true if the credentials are valid
