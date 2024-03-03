@@ -7,51 +7,18 @@ body {
   color: #333; /* Softer color for readability */
 }
 
-.main.container {
-  box-sizing: border-box;
-  width: 80vw; /* Responsive width */
-  height: 100vh;
-  margin: 10vh auto; /* Centered with more balanced vertical spacing */
-  padding: 2%; /* Proportionate padding */
-  background-color: #fff; /* Pure white background for contrast */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  border-radius: 15px; /* Softened edges */
+.main-container {
+  border-radius: 15px;
+  padding: 2rem;
+  height: 70vh;
+  background-color: #fff;
 }
 
-.row {
+.row{
+  margin-bottom: 2rem;
   font-size: large;
-  margin: 5% auto; /* Balanced, centered spacing */
-  padding: 20px; /* More space inside */
-  background: #ffffff; /* Consistent with .main.container */
 }
 
-.row.colored {
-  font-size: 1.5rem; /* Responsive font size */
-  font-style: italic;
-  background: linear-gradient(to right, #2193b0, #6dd5ed); /* A more modern, appealing gradient */
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-around; /* Evenly space navigation items */
-  align-items: center; /* Vertically center items */
-  padding: 1rem 0; /* More balanced padding */
-  background: linear-gradient(to right, #8e0e00, #1f1c18); /* Updated gradient for a sleek look */
-  color: white;
-}
-
-.nav-custom {
-  color: white; /* Ensures readability */
-  text-decoration:rgba(44, 161, 216, 0.1); /* Removes underline from links */
-  font-size: 1.2rem; /* Larger, more clickable area */
-  padding: 0.5rem 1rem; /* Better touch target size */
-  transition: color 1s ease-in-out; /* Smooth transition for hover effects */
-}
-
-.nav-custom:hover {
-  color: #ddd; /* Subtle hover effect */
+.navbar-dark:hover{
+  color:dodgerblue !important;
 }
