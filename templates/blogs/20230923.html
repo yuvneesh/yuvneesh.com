@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Linear Algebra - equations variables dimensions solutions
+{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='blog.css') }}">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+{% endblock %}
+
+{% block pageHeading %}
+    <h1>Linear Algebra : equations, variables and solutions</h1>
+    <div class="date">September 23, 2023</div>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <div class="section"> Setup </div>
+    <div class="para">
+        Consider a simple equation \( x = 0 \). I can write this equation as: <br>
+        $$x + 0x_{2} + 0x_{3} + ... + 0x_{n} = 0 $$
+    </div>
+
+
+    <div class="section"> Graphical representation </div>
+    <div class="para">
+        The simplest way to represent this would be as a point at 0 on the number line.
+
+        If I were to represent this on a 2-Dimensional plane, its representation would depend on the plane I am choosing. <br><br>
+        
+        For example, on the x-y plane, this would be the y-axis. Similarly, on the x-z plane, this would be the z-axis. In the y-z plane, it would be the entire plane. 
+        However, if it was the case that \(x \neq 0\), it would be irrelevant to talk about y-z plane. 
+
+        If I were to represent this in a 3-dimensional space, it would be the y-z plane.
+
+        When I say y-z plane, I mean the plane formed by the y-axis and the z-axis <br><br>
+
+        I cannot visualize what it would be in higher dimensions. But so far here is how I see the 
+        system to 'develop' its representation as the dimensions (starting at 1) are incremented by 1:
+
+        $$\textrm{point}$$
+
+        $$\downarrow $$ 
+
+        $$\textrm{line}$$
+
+        $$\downarrow $$ 
+
+        $$\textrm{plane}$$
+
+        $$\downarrow $$ 
+
+        $$\textbf{magic}$$
+        
+
+    </div>
+
+    <div class="section"> Rank and restrictions </div>
+    <div class="para">
+        My observation here is that all these representations arise because the system that I started with is a 1x3 system with 1 leading variable and thus \(n-r = 3-1 = 2\) parameters that are y and z. The existence of these parameters allows the solution/visualization to extend infinitely in y and z.
+
+        On the other hand, if the system was 3x3, with a rank of 3, it would imply that all the variables that I have are independent of each other and thus, the solution in this case would just be a point in 3D space.
+        
+        A system of 0 equations in 3 variables is then, all of 3D space. The introduction of m equations restricts the solution. Strictly considering our actual 3D space, we cannot restrict our system to more than 3 dimensions. It makes no sense to restrict it to dimensions more than the actual dimensions we have. 
+        
+        Simply stated:
+        $$r \leq n \iff \textrm{ consistent system} $$
+
+        $$r > n \iff \textrm{inconsistent system}$$
+
+        I think this helps with questions about rank of the augmented matrix. You CAN have an augmented matrix (in RREF) such that the leading one is in last column, giving a rank of n + 1. However, this would also mean that r > n, which implies that the system is inconsistent and no solutions exist.
+    </div>
+
+    <div class="section"> An alternate perspective </div>
+    <div class="para">
+        Instead of my original attempt at visualization, this time I start with a 0x3 system. The solution for this is all of space. Increase m and r by 1, we have a 1x3 system and the solution is a plane. Increase m and r by 2, we have a 2x3 system and the solution is a line. Increase m and r by 3, we have a 3x3 system and the solution is a point.
+        We get the following reductions as m (starting at m = 0) increments by 1.
+
+        $$\textrm{Space = all planes}$$
+
+        $$\textrm{m + 1} \downarrow \textrm{r + 1}$$ 
+
+        $$\textrm{A specific plane = all lines in that plane}$$
+
+        $$\textrm{m + 1} \downarrow \textrm{r + 1}$$ 
+
+        $$\textrm{A specific line = all points in that line }$$
+
+        $$\textrm{m + 1} \downarrow \textrm{r + 1}$$ 
+
+
+        $$\textrm{No solution}$$
+    </div>
+    
+    <div class="section"></div>
+    <img src="{{ url_for('static', filename='images/blog/20230923/linear_algebra_meme.jpeg') }}" alt="A meme" style="  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;">
+
+</div>
+{% endblock %}
