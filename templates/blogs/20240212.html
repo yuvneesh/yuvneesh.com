@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    UTM Physics Club trip to Western University February 2024
+{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='blog.css') }}">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+{% endblock %}
+
+{% block pageHeading %}
+    <h1>UTM Physics Club trip to Western University</h1>
+    <div class="date">February 12, 2024</div>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <div class="section">UTM Physics Club visit</div>
+    <div class="para">The UTM Physics Club visited Western University in London, Ontario, on February 9, 2024. 
+        It was a fantastic trip. I enjoyed meeting the faculty and students and learned a few things about grad school. 
+        The highlight was the Hume Cronyn Memorial Observatory. We had the opportunity to see Jupiter through the telescope, 
+        which was surreal.
+    </div>
+    <div class="para">Here are some pictures: <br> <br>
+        <div style="display: flex;">
+            <img src="{{ url_for('static', filename='images/blog/20240212/IMG_8401.jpeg') }}" style="  display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;">
+        </div>
+    </div>
+    <div class="para">
+        <div style="display: flex;">
+            <img src="{{ url_for('static', filename='images/blog/20240212/IMG_8462.jpeg') }}" style="  display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;">
+            <img src="{{ url_for('static', filename='images/blog/20240212/IMG_8465.jpeg') }}" style="  display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;">
+        </div>
+    </div>
+    <div class="para">
+        <div style="display: flex;">
+            <img src="{{ url_for('static', filename='images/blog/20240212/IMG_8431.jpeg') }}" style="  display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;">
+            <img src="{{ url_for('static', filename='images/blog/20240212/IMG_8452.jpeg') }}" style="  display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;">
+        </div>
+    </div>
+
+
+</div>  
+{% endblock %}
+
+
