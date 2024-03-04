@@ -31,7 +31,7 @@ def sootByFTIR():
     buttons = [form.calculate]
     fields = [form.Absorbance, form.Soot]
 
-    return render_template("sootByFTIR.html", form=form, fields=fields, buttons=buttons)
+    return render_template("apps/sootByFTIR.html", form=form, fields=fields, buttons=buttons)
 
 @app.route("/calculateSoot", methods=['POST'])
 def calculateSoot():
@@ -45,7 +45,7 @@ def login():
     buttons = [form.login]
     fields = [form.username, form.password]
         
-    return render_template("login.html", form=form, fields=fields, buttons=buttons)
+    return render_template("apps/login.html", form=form, fields=fields, buttons=buttons)
 
 @app.route("/authenticate", methods=['POST'])
 def authenticate():
