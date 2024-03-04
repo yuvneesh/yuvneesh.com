@@ -1,0 +1,168 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    A first year physics major lab report using Latex
+{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='blog.css') }}">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+{% endblock %}
+
+{% block pageHeading %}
+    <h1>A physics lab report using \( \LaTeX{} \)</h1>
+    <div class="date">December 23, 2022</div>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="section"><h2>Introduction</h2> </div>
+    <div class="para">
+        The curriculum of PHY146 : Principles of Physics I requires performing experiments studying various laws of physics followed by writing a lab report. For the last lab of the semester, I decided to challenge myself and write the report using \( \LaTeX{} \).
+        I decided to use the "head on" approach i.e. to learn as I go and document the process.
+    </div>
+
+    <div class="section"><h2>Preamble</h2></div>
+    <div class="para">
+        Here is what the preamble of my report looked like: <br>
+        <div class="codeblock">
+<code>\documentclass [12pt, titlepage]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{ {./figures/} }
+\usepackage{siunitx}
+\usepackage{gensymb}
+\usepackage{booktabs}
+\begin{document}
+</code>
+        </div>
+        The first line defines the type of document or template used.
+        The "\usepackage" are all the additional packages that I used.
+    </div>
+
+    <div class="section"><h2>Adding Comments</h2></div>
+    <div class="para">
+        % can be used to comment out an entire line or trailing part of a line. <br>
+        <div class="codeblock">
+<code>This is a fraction: $ {a \over b} %this is a trailing comment $
+$ % Use it at the start of the line to comment out the entire line. $
+This is a fraction within a fraction ${a \over {b \over c}}$
+</code>  
+        </div>
+        <div class="rendered">
+            This is a fraction: \( {a \over b} %this is a trailing comment \)
+            \( % Use it at the start of the line to comment out the entire line. \) <br>
+            This is a fraction within a fraction \({a \over {b \over c}}\)
+        </div>
+        Comments are a useful tool in any language (markup or otherwise). The motive of adding comments is to make the code readable.
+        <a href="https://tex.stackexchange.com/questions/17816/commenting-out-large-sections">Relevant stackexchange</a> <a href="https://xkcd.com/1421/">Relevant xkcd</a>
+    </div>
+
+
+    <div class="section"><h2>SI Units</h2></div>
+    <div class="para">
+        Every physical measurement is composed of two components i.e. a numerical value and a unit. 
+        SIUnitx package provides a seamless way of including units in \( \LaTeX{} \).
+        <a href="https://texdoc.org/serve/siunitx/0"> A detailed guide the package can be found here.</a>
+        The basic structure of writing a measurement is to start with the tag "\qty" followed by the numerical value in curly brackets, followed by the units in curly brackets.
+        Unline writing the units is MS Word or similar document editors, SIUnitx require to write the name of the unit preceeded by backslash rather than the sybmol.
+        For instance to write the mass of a body, you will write: "\qty{1.00}{\kilogram}". Composite units can be chained in the similar fashion. Some examples follows:
+        <br>
+        <div class="codeblock">
+<code>$g = \qty{9.81}{\metre\per\second\squared}$
+$\rho_{ball} = \qty{1.25}{\kilogram\per\metre\cubed}$
+</code>  
+        </div>
+        <div class="rendered">
+            \( g = 9.81 \) m s\(^{-2} \) <br>
+            \( \rho = 1.25 \) kg m\(^{-3}\)
+        </div>
+        One important thing to remember is to only use singular names. So metre instead of metres, Joule instead of joules, etc. 
+    </div>
+
+    <div class="section"><h2>Lists</h2></div>
+    <div class="para">
+        List enumeration can be done using the enumerate tag and beginning each item of the list with the "\\item" tag
+        A comprehenisve guide can be found <a href="https://www.overleaf.com/learn/latex/Lists">here</a></a><br>
+        <div class="codeblock">
+<code>\begin {enumerate} 
+\\item point1
+\\item point2
+\end {enumerate}
+</code>  
+        </div>
+        <div class="rendered">
+            <img src="{{ url_for('static', filename='images/blog/20221223/list_example.png') }}" alt="A simple list">
+        </div>
+    </div>
+
+    <div class="section"><h2>Tables</h2></div>
+    <div class="para">
+        tabularx is the package that I used to make tables. 
+        There are tools such as <a href="https://www.tablesgenerator.com/">this one</a> that can be used to create tables using a UI.
+        Although it is important to know how the syntax works to tailor the table to your needs, I found this tool really useful to create the layout and data enter.
+        A simple table is shown below: <br>
+        <div class="codeblock">
+<code>\begin{table}[H]                                
+\centering
+\caption{Mass of objects}
+\label{tab:mass-table}
+\begin{tabular}{c|c}
+\hline
+Object      & Mass (g) \\ 
+\hline
+Toy Car & 274.50  $\pm$ 0.05  \\
+AAA Battery & 10.00    $\pm$ 0.05
+\hline
+\end{tabular}
+\end{table}
+</code>  
+        </div>
+        <div class="rendered">
+            <img src="{{ url_for('static', filename='images/blog/20221223/table_example.png') }}" alt="A simple table">
+        </div>
+        A lot is going on here so let's break it down. <br> <br> 
+        1. We start with the familiar begin tag that is followed by "[H]". This forces the table to to be placed at the same relative position in pdf as it is in the markup file. This functionality comes from the float package.<br>  <br>
+        2. The centering tag and as the name suggests, it center aligns the table. <br><br> 
+        3. Next we have the table caption. This is the same caption that will appear in the table of contents. <br> <br> 
+        4. The label tag creates a name for the table that can be used for referencing the table. <br> <br> 
+        5. The begin tag for tabular followed by "{ c | c }" that defines that the table has two columns (Two Cs), the contents of the columns are centred (c for centre) in the column and the columns are separated by a vertical line (|) <br><br> 
+        6. The hline tage is for a horizontal line. There are two more hlines that corresponds to start of the table, end of header row, and end of table.  <br> <br> 
+        7. Each row is a single line of text with "&" as the column separator and "\\\\" as the end of line\row charachter.
+    </div>
+
+    <div class="section"><h2>Figures</h2></div>
+    <div class="para">
+        A packaged called graphicx can be used to handle adding graphicsc to the document.
+        In the preamble of this report, the graphicx package was included along with the definition of location of the graphics using the graohicspath tag.
+
+        <div class="codeblock">
+<code>\begin{figure}[H]                                           
+\centering
+\includegraphics[width=10cm,height=7.2cm]{my_image.png}
+\caption{A picture}
+\end{figure}
+</code>  
+        </div>
+
+        The syntax is a simpler version of the table. 
+        The includegraphics tag is where we define the the dimesnsions of the image in square brackets and name of the image file in curly brackets.
+        The convention for captioning is that the caption for table goes on top of the table and the caption for a figure goes on the bottom of the figure.
+        So, in table the caption tag was before the content of the table and for the figure, the caption tag is after the content.
+
+    </div>
+
+    <div class="section"><h2>Concluding</h2></div>
+    <div class="para">
+        Units, lists, tables and figures provided me enough tools to write a complete report. For the raw data and calculations, I mainly used excel. In the future I will try to use python to add data and calculations to the markdown document that will likely make the entire process efficient and reduce the chances of typos. 
+    </div>            
+
+</div>
+
+{% endblock %}
