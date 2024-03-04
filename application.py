@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 from sootByFTIR import sootCalc
 from loginPage import loginForm
 from authentication import UserManager
@@ -58,5 +58,10 @@ def authenticate():
             return json.dumps({"status": False})
     
 @app.route("/blogs", methods=['GET', 'POST'])
-def testBlog():
+def blogs():
     return render_template("blogs.html")
+
+@app.route("/blogs/<id>", methods=['GET', 'POST'])
+def testBlog(id:int):
+    #return f"{id}"
+    return render_template(f'blogs/{id}.html')
