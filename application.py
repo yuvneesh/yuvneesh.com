@@ -62,6 +62,5 @@ def blogs():
     return render_template("blogs.html")
 
 @app.route("/blogs/<id>", methods=['GET', 'POST'])
-def testBlog(id:int):
-    #return f"{id}"
+def showBlog(id:int):
     return render_template(f'blogs/{id}.html')
