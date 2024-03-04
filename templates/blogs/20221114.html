@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Getting started with Latex - tutorial
+{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='blog.css') }}">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+{% endblock %}
+
+{% block pageHeading %}
+    <h1>Getting Started with \( \LaTeX{} \)!</h1>
+    <div class="date">November 14, 2022</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="content">
+
+    <div class="section"> <h2>Introduction</h2> </div>
+
+    <div class="para">
+        LaTeX <i>(pronounced lah-tekh or lay-tekh)</i> is a typesetting languge that is widely used for writing and publishing scientific documents.
+        The reason I got introduced to LaTeX is that it allows you to write mathematical symbols and equations in different environments. For example, the solution of quadratic equation is defined as: <br>
+        <p>
+            When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are:
+            \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}\]
+        </p>
+        <br>
+        For this webpage, MathJX was used to render LaTeX. The above paragraph was written in plain text as: <br>
+        <div class="codeblock">
+            <code>When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are: <br> \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}\]</code>
+        </div>
+
+        <p>
+            As it can be seen, any set of words that we intend to render as LaTeX, has to be enclosed between \\( and \\)
+            The common symbols as alphabets, addition (+), subtraction (-), equal sign (=) are typed as is. While for more complex symbols, abbreviations are used to render the symbols. 
+            These abbreviations are generally intuitive such as for \( \pm \) the equivalent text is \\( \pm \). More of these symbols will be discussed in detail in following sections.
+        </p>
+    </div>
+
+    <div class="section"> <h2>Initial Setup</h2> </div>
+
+    <div class="para">
+        There are multiple ways that can be used to write in LaTeX. I will be installing MacTex locally on MacOS. <br> <br>
+        1. <a href="https://tug.org/mactex/">Here is a link to download the setup files for MacTex</a> Follow the installation instructions. <br> <br>
+        2. After the installation is complete, launch TeXShop.<br> <br>
+        3. We begin the document with what is referred as the Top Matter. This section is for the information about the document such as the document type, authors, date, etc.
+        We start with the <span>&#92;</span>documentclass command. A documentclass defines the layout of the document. In this case I will be using article as the class.
+        <span>&#92;</span>begin command marks the start of the document. <span>&#92;</span>title <span>&#92;</span>author <span>&#92;</span>date commands are used to build the title of the document and 
+        <span>&#92;</span>maketitle is the command to do it. <br><br>
+        4. Press Command + T keys to render the first page of the document. A preview window will open. <br><br>
+        <img src="{{ url_for('static', filename='images/blog/20221114/TexStart.png') }}" alt="Screenshot of Top Matter and output">
+    </div>
+
+    <div class="section"> <h2>Some common commands </h2></div>
+    
+    <div class="para">
+        <table class="table" style="max-width: 20rem;">
+
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <th>\pm</th>
+                    <th> \( \pm \) </th>
+                </tr>
+
+                <tr>
+                    <th>\ne</th>
+                    <th> \( \ne \) </th>
+                </tr>
+
+                <tr>
+                    <th>\geq</th>
+                    <th> \( \geq \) </th>
+                </tr>
+
+                <tr>
+                    <th>\leq</th>
+                    <th> \( \leq \) </th>
+                </tr>
+
+                <tr>
+                    <th>\alpha </th>
+                    <th> \( \alpha \) </th>
+                </tr>
+
+                <tr>
+                    <th>\e^{\pi}</th>
+                    <th> \( e^{\pi} \) </th>
+                </tr>
+
+                <tr>
+                    <th>\sqrt{x} \over 2</th>
+                    <th> \( \sqrt{x} \over 2 \) </th>
+                </tr>
+
+            </tbody>               
+        </table>
+    </div>
+
+    <div class="section"> <h2>Summing up</h2> </div>
+
+    <div class="para">
+       Although the focus of this article has been mathematical symbols and equations, the capabilities of LaTeX are much more. I am going to write my next physics lab report using LaTeX. In the upcoming article of this series, I will gather all the tools I used to write the lab report.
+    </div>
+</div>
+
+{% endblock %}

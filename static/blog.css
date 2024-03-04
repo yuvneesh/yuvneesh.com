@@ -1,0 +1,73 @@
+
+
+.main-container {
+  border-radius: 15px;
+  padding: 2rem;
+  height: auto;
+  background-color: #fff;
+}
+
+.title {
+  color: #2c3e50; /* Deep Blue color for title */
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 20px;
+  background-color: #ecf0f1; /* Light Grey background */
+  border-bottom: 4px solid #bdc3c7; /* Border under title */
+  letter-spacing: 2px;
+  border-radius: 6px 6px 0 0; /* Rounded corners on top */
+}
+
+.date {
+  font-size: 1.1em;
+  color: #7f8c8d; /* Grey color for date */
+  text-align: center;
+  margin-top: 0;
+}
+
+.section {
+  font-size: 2em;
+  color: #16a085; /* Green color for section headers */
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #bdc3c7; /* Border under sections */
+}
+
+.para {
+  text-align: justify;
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #2c3e50; /* Deep Blue color for text */
+}
+
+img {
+  width:100%;
+  height:100%;
+  align-items: center;
+}
+
+
+/* Highlighted Text */
+.highlight {
+  background-color: #ffeaa7; /* Yellow color for highlighting */
+  padding: 0 5px;
+}
+
+/* Styling for code blocks and rendered blocks */
+.codeblock, .rendered {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+.rendered {
+  border-color: #8bc34a; /* Green border for rendered block */
+}
+
+code {
+  white-space: pre;
+}
