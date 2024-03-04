@@ -56,3 +56,7 @@ def authenticate():
             return json.dumps({"status": False})
     except UserManager.UserNotFound:
             return json.dumps({"status": False})
+    
+@app.route("/blogs", methods=['GET', 'POST'])
+def testBlog():
+    return render_template("blogs.html")
